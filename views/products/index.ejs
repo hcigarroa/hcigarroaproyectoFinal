@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lista de productos</title>
+  </head>
+  <body>
+    <h1>Lista de productos</h1>
+    <ul>
+      <% products.forEach(product => { %>
+        <li><a href="/productos/<%= product.id %>"><%= product.name %></a></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
