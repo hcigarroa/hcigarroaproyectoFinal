@@ -3,6 +3,8 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://hcigarroa:<password>@purocorazon.cu78soc.mongodb.net/?retryWrites=true&w=majority";
 const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../config/db');
+const Product = require('./models/product');
+
 
 // Definición del esquema de la colección de productos
 const productSchema = new mongoose.Schema({
@@ -60,5 +62,15 @@ const client = new MongoClient(uri, {
       allowNull: false
     }
   });
-  
+
+  sequelize.sync()
+  .then(() => {
+    console.log('Database and tables created!');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+  module.exports = sequelize;
+
   module.exports = Product;
