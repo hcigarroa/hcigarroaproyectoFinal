@@ -5,6 +5,8 @@ app.use('/', indexRouter);
 const express = require('express');
 const app = express();
 
+require('dotenv').config();
+
 // Ruta principal
 app.get('/', (req, res) => {
   res.render('index', { title: 'Inicio' });
